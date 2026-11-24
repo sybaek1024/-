@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>백수연 | 자기소개</title>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'Gowun Dodum', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: linear-gradient(135deg, #fff1f6 0%, #fff8e7 50%, #eaf7ff 100%);
+    overflow-x: hidden;
+    position: relative;
+    color: #4a3f55;
+  }
+
+  /* 배경 장식 원 */
+  .bubble {
+    position: fixed;
+    border-radius: 50%;
+    opacity: 0.55;
+    z-index: 0;
+    animation: float 9s ease-in-out infinite;
+  }
+  .b1 { width: 260px; height: 260px; background: #ffd1e3; top: -60px; left: -70px; }
+  .b2 { width: 180px; height: 180px; background: #ffe9a8; bottom: 40px; left: 8%; animation-delay: -3s; }
+  .b3 { width: 220px; height: 220px; background: #c9ecff; top: 12%; right: -60px; animation-delay: -5s; }
+  .b4 { width: 110px; height: 110px; background: #d9f5d6; bottom: -30px; right: 18%; animation-delay: -1.5s; }
+  .b5 { width: 70px; height: 70px; background: #e8dcff; top: 55%; left: 22%; animation-delay: -6s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-18px) scale(1.04); }
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 440px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 48px;
+    padding: 56px 36px 40px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(255, 150, 190, 0.22), 0 4px 12px rgba(0, 0, 0, 0.04);
+    animation: pop 0.7s cubic-bezier(.2, 1.4, .4, 1) both;
+  }
+
+  @keyframes pop {
+    from { opacity: 0; transform: scale(0.85) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .avatar {
+    width: 132px;
+    height: 132px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    background: linear-gradient(140deg, #ffb6cf, #ffd88a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Jua', sans-serif;
+    font-size: 52px;
+    color: #fff;
+    box-shadow: 0 0 0 8px #fff, 0 0 0 14px #ffe3ee, 0 12px 28px rgba(255, 140, 180, 0.35);
+    transition: transform 0.4s;
+  }
+  .avatar:hover { transform: rotate(-8deg) scale(1.05); }
+
+  .hello {
+    display: inline-block;
+    background: #fff3c4;
+    color: #c98a00;
+    font-size: 14px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Jua', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: #ff7aa8;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+
+  .sub {
+    font-size: 15px;
+    color: #9a8ca8;
+    margin-bottom: 32px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    border-radius: 999px;
+    text-align: left;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .pill:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  }
+  .pill .icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+  .pill .label {
+    font-size: 12px;
+    opacity: 0.75;
+    display: block;
+  }
+  .pill .value {
+    font-family: 'Jua', sans-serif;
+    font-size: 19px;
+  }
+
+  .p-name { background: #ffe3ee; color: #d9537f; }
+  .p-age  { background: #fff3c4; color: #b07b00; }
+  .p-job  { background: #dcf1ff; color: #2f86b8; }
+
+  .dots {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  .dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .dots span:nth-child(1) { background: #ffb6cf; }
+  .dots span:nth-child(2) { background: #ffd88a; }
+  .dots span:nth-child(3) { background: #a8dcff; }
+  .dots span:nth-child(4) { background: #bfe8b8; }
+
+  @media (max-width: 420px) {
+    .card { padding: 46px 22px 32px; border-radius: 40px; }
+    h1 { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+  <div class="bubble b1"></div>
+  <div class="bubble b2"></div>
+  <div class="bubble b3"></div>
+  <div class="bubble b4"></div>
+  <div class="bubble b5"></div>
+
+  <main class="card">
+    <div class="avatar">수연</div>
+    <span class="hello">안녕하세요! 👋</span>
+    <h1>백수연</h1>
+    <p class="sub">만나서 반가워요 ✨</p>
+
+    <div class="info">
+      <div class="pill p-name">
+        <div class="icon">🌸</div>
+        <div>
+          <span class="label">이름</span>
+          <span class="value">백수연</span>
+        </div>
+      </div>
+      <div class="pill p-age">
+        <div class="icon">🎂</div>
+        <div>
+          <span class="label">나이</span>
+          <span class="value">24살</span>
+        </div>
+      </div>
+      <div class="pill p-job">
+        <div class="icon">🧪</div>
+        <div>
+          <span class="label">직업</span>
+          <span class="value">화학코스메틱스학과 학생</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dots"><span></span><span></span><span></span><span></span></div>
+  </main>
+</body>
+</html>
